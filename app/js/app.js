@@ -26,6 +26,11 @@ let doDiamond = (size) => {
             output = output + `\n`;
         }
     }else{
+        //top and bottom need a size-1 spaces and a single *.
+        for(let i = 0; i < size - 1; i++){
+            output += ` `;
+        }
+        output += `*\n`;
         for(let i = -1*size; i <= size; i+=2){
             //spaces before center line
             for(let j = Math.abs(i); j > 0; j-=2){
@@ -48,6 +53,10 @@ let doDiamond = (size) => {
             }
             output = output + `\n`;
         }
+        for(let i = 0; i < size - 1; i++){
+            output += ` `;
+        }
+        output += `*`;
     }
     return output;
 };
