@@ -31,32 +31,24 @@ let doDiamond = (size) => {
             output += ` `;
         }
         output += `*\n`;
-        for(let i = -1*size; i <= size; i+=2){
-            //spaces before center line
-            for(let j = Math.abs(i); j > 0; j-=2){
-                output = output + ` `;
+        for(let i = -1*half+1; i <= half-1; i++){
+            //spaces before stars
+            for(let j = 0; j < Math.abs(i); j++){
+                output = output + `  `;
             }
-            //stars before center line
-            for(let j = size - Math.abs(i); j > 0; j-=2)
+            //stars
+            for(let j = 0; j < size-2*Math.abs(i); j++)
             {
-                output = output + `*`;
+                output = output + `* `;
             }
-            //add center point if first or last line, otherwise
-            //pivot to stars after centerline (no center point)
-            if(Math.abs(i) == half){
-                output = output + `*`;
-            }
-            //stars after center line
-            for(let j = size - Math.abs(i); j > 0; j-=2)
-            {
-                output = output + `*`;
-            }
+            //add line break
             output = output + `\n`;
         }
+        //final row, need to place star in center
         for(let i = 0; i < size - 1; i++){
             output += ` `;
         }
-        output += `*`;
+        output += `*\n`;
     }
     return output;
 };
@@ -66,4 +58,5 @@ window.onload = () => {
         `background-color: yellow; font-weight: bold;`);
     console.log(doDiamond(5));
     console.log(doDiamond(4));
+    console.log(doDiamond(6));
 };
