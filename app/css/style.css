@@ -12,7 +12,7 @@ body {
   color: var(--color--text);
   font-family: var(--font--reading);
   font-weight: 100;
-  text-align: center;
+  text-align: left;
 }
 
 h1,
@@ -22,4 +22,14 @@ h4,
 h5,
 h6 {
   font-family: var(--font--headings);
+}
+
+div {
+  width:50%;
+  padding-bottom:50%;
+  left: 0px;
+  top: 0px;
+  border: solid 1px gray;
+  width: auto;
+  height: auto;
 }
