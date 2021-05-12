@@ -75,25 +75,30 @@ window.onload = () => {
 
     console.log(doDiamond(input));
     div.innerText = doDiamond(input);
+    div.setAttribute(`left`,`0px;`);
+    div.setAttribute(`top`,`0px;`);
+    console.log(window.innerWidth);
 
-    console.log(div.style.left);
+    console.log(4document.getElementById(`diamondBox`).style.left));
 
     setInterval(() => {
         let pos;
 
         if(direction == `right`){
-            pos = parseInt(div.style.right6);
+            pos = parseInt(div.style.right);
             if(pos == window.clientWidth){
                 direction = `left`;
             }else{
-                div.style.left = `` + (pos--) + `px`;
+                let newpos = parseInt(div.style.left) - 1;
+                div.setAttribute(`left`, newpos + `px;`);
             }
         }else{
             pos = parseInt(div.style.left);
             if(pos == 0){
                 direction = `right`;
             }else {
-                div.style.left = `` + (pos++) + `px`;
+                let newpos = parseInt(div.style.left) + 1;
+                div.setAttribute(`left`, newpos + `px;`);
             }
         }
         console.log(direction);
