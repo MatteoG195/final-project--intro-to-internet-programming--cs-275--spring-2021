@@ -56,12 +56,6 @@ let doDiamond = (size) => {
 };
 
 window.onload = () => {
-    console.log(`%c JavaScript works!`,
-        `background-color: yellow; font-weight: bold;`);
-    console.log(doDiamond(5));
-    console.log(doDiamond(4));
-    console.log(doDiamond(6));
-
     let div = document.getElementById(`diamondBox`);
     let input;
     let direction = `left`;
@@ -79,14 +73,12 @@ window.onload = () => {
     div.setAttribute(`top`,`0px;`);
     console.log(window.innerWidth);
 
-    console.log(4document.getElementById(`diamondBox`).style.left));
-
     setInterval(() => {
         let pos;
 
         if(direction == `right`){
             pos = parseInt(div.style.right);
-            if(pos == window.clientWidth){
+            if(pos == window.innerWidth){
                 direction = `left`;
             }else{
                 let newpos = parseInt(div.style.left) - 1;
