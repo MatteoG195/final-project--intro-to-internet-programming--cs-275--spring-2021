@@ -64,9 +64,7 @@ window.onload = () => {
 
     let div = document.getElementById(`diamondBox`);
     let input;
-    let direction = `right`;
-
-    console.log(div.style.left);
+    let direction = `left`;
 
     const ONE_SECOND = 1000;
 
@@ -76,24 +74,26 @@ window.onload = () => {
     }while(isNaN(input));
 
     console.log(doDiamond(input));
-    div.content = doDiamond(input);
+    div.innerText = doDiamond(input);
+
+    console.log(div.style.left);
 
     setInterval(() => {
         let pos;
 
         if(direction == `right`){
-            pos = div.style.right;
-            if(pos == window.clientWidth5){
+            pos = parseInt(div.style.right6);
+            if(pos == window.clientWidth){
                 direction = `left`;
             }else{
-                div.style.left--;
+                div.style.left = `` + (pos--) + `px`;
             }
         }else{
-            pos == div.style.left;
+            pos = parseInt(div.style.left);
             if(pos == 0){
                 direction = `right`;
             }else {
-                div.style.left++;
+                div.style.left = `` + (pos++) + `px`;
             }
         }
         console.log(direction);
