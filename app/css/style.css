@@ -25,12 +25,10 @@ h6 {
 }
 
 div {
+  width: max-content;
   position: absolute;
-  padding: 5px;
   text-align: center;
   line-height: .7;
-  display: inline-block;
+  display: block;
   border: solid 1px gray;
-  width: 100px;
-  height: 100px;
 }

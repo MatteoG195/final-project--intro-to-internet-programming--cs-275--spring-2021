@@ -61,7 +61,7 @@ window.onload = () => {
 
     let div = document.getElementById(`diamondBox`);
     let input;
-    let direction = `left`;
+    let direction = `right`;
 
     const ONE_SECOND = 1000;
 
@@ -73,28 +73,30 @@ window.onload = () => {
     console.log(doDiamond(input));
     div.innerText = doDiamond(input);
 
-    console.log(window.innerWidth);
+    div.style.left = `0px`;
+
+    console.log(div.getBoundingClientRect().width);
 
     setInterval(() => {
-        let pos;
+        let divLeft = parseInt(div.style.left,10);
+        let width = div.getBoundingClientRect().width;
+
 
         if(direction === `right`){
-            pos = parseInt(div.style.right,10);
-            if(pos === window.innerWidth){
-                direction = `left`;
+            if((divLeft + width) <= window.innerWidth)
+            {
+                let newpos = parseInt(div.style.left,10) + 1;
+                div.style.left = `${newpos}px`;
             }else{
-                let newpos = parseInt(div.style.left,10) - 1;
-                div.style.left = newpos + `px;`;
+                direction = `left`;
             }
         }else{
-            pos = parseInt(div.style.left,10);
-            if(pos === 0){
+            if(divLeft <= 0){
                 direction = `right`;
-            }else {
-                let newpos = parseInt(div.style.left,10) + 1;
-                div.style.left = newpos + `px;`;
+            }else{
+                let newpos = parseInt(div.style.left,10) - 1;
+                div.style.left = `${newpos}px`;
             }
         }
-        console.log(direction);
-    }, (ONE_SECOND))
+    }, (ONE_SECOND/1000))
 };
